@@ -45,7 +45,6 @@ public:
         int count = 1;
         int i = array.size()-1;
         while (i>=0){
-            //cout<<"enter while"<<endl;
             if(array[i]!=0 && (array[i]*count)/array[i]!= count) {
                 
                 if(neg==1) return INT_MAX;
@@ -53,15 +52,15 @@ public:
             }
             if(neg==1){
                 if((INT_MAX - re)<array[i]*count) {
-                    cout<<"here"<<endl;
+                    //cout<<"here"<<endl;
                     return INT_MAX;
                 }
             }else {
                 if((INT_MAX - re)<array[i]*count) {
-                    cout<<"here s"<<endl;
+                    /*cout<<"here s"<<endl;
                     cout<<"left is "<<INT_MAX-1 - re<<endl;
                     cout<<"right is "<<array[i]*count<<endl;
-                    cout<<"INT MIN"<< INT_MIN<<endl;
+                    cout<<"INT MIN"<< INT_MIN<<endl;*/
                     return INT_MIN;
                 }
             }
@@ -69,8 +68,12 @@ public:
             //cout<<"part to add is "<<array[i]<<endl;
             //cout<<"count is "<<count<<endl;
             re = re + array[i]*count;
-            cout<<"re is now "<<re<<endl;
-            count  = count *10;
+            //cout<<"re is now "<<re<<endl;
+            if(i-1>=0){count  = count *10;
+            if(count%10 != 0){
+                if(neg==1) return INT_MAX;
+                return INT_MIN;
+            }}
             i--;
         }
         re = re*neg;
