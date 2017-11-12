@@ -8,6 +8,24 @@ public:
 	  re.push_back (index_a);
 	  re.push_back (index_b);
 	  return re;
-}}}}}; 
+}}}}};
 
-//java: int[] a = {index_a, index_b}
+//another O(n) solution 
+    vector <int> twoSum (vector <int> & nums, int target){
+       
+    //<value , index>
+    unordered_map <int, int> hash;
+    vector<int> result;
+    
+    for(int i = 0; i< nums.size(); i ++){
+        int toFind = target - nums[i];
+        if (hash.find(toFind) == hash.end()){
+            hash[nums[i]]= i;
+        }else{
+            result.push_back(hash[toFind]);
+            result.push_back(i);
+        }
+    }
+    
+    return result;
+    }
